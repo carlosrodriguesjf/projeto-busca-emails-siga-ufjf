@@ -60,5 +60,9 @@ for matricula in matriculas:
     pgui.tripleClick(797,223,duration=0.5)
     pgui.hotkey('ctrl','c')
     email = pyp.paste()
+
+    #7) Busca e copia o e-mail
     print(f'{matricula} - {nome} - {email}')
     pgui.scroll(1000)
+
+    
