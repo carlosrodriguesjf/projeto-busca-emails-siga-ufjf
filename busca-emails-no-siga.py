@@ -1,10 +1,12 @@
+#PROGRAMA BUSCA O NOME E EMAIL ATRAVÉS DA MATRÍCULA DO ALUNO
+
 import pyautogui as pgui
 import webbrowser
 import pyperclip as pyp
 from time import sleep
 
 #1) Navegar até o site siga.ufjf.break
-'''
+
 webbrowser.open('https://siga.ufjf.br')
 sleep(3)
 
@@ -31,25 +33,34 @@ pgui.click(83,340, duration=0.5)
 sleep(2)
 pgui.click(197,331, duration=0.5)
 sleep(2)
-'''
+
 #4) Digitar a matrícula
-matriculas = ['200550005','200550030','200550020']
+
+
+
+matriculas = ['200550001','200550002','200550003','200550014','200550005','200550006','200550007','200550008','200550009',
+'200550018','200550022','200550032']
 
 for matricula in matriculas:
-    pgui.tripleClick(37,312, duration=1)
-    matricula = pyp.copy(matricula)
+    pgui.tripleClick(37,312, duration=0.5)
+    pyp.copy(matricula)
     pgui.hotkey('ctrl','v')
     sleep(1)
-    pgui.click(51,337,duration=1)
+    pgui.click(51,337,duration=0.5)
 
-
-    # 5) Busca e copia o e-mail
+    #5) Busca o nome
     sleep(1)
-    pgui.click(37,312, duration=1)
+    pgui.tripleClick(52,412, duration=0.5)
+    pgui.hotkey('ctrl','c')
+    nome = pyp.paste()
+
+    #6) Busca e copia o e-mail
+    sleep(1)
+    pgui.click(37,312, duration=0.5)
     pgui.scroll(-1000)
 
-    pgui.tripleClick(797,223,duration=1)
+    pgui.tripleClick(797,223,duration=0.5)
     pgui.hotkey('ctrl','c')
     email = pyp.paste()
-    print(email)
+    print(f'{matricula} - {nome} - {email}')
     pgui.scroll(1000)
